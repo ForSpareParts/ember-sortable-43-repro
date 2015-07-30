@@ -1,3 +1,22 @@
 <h2 id="title">Welcome to Ember.js</h2>
 
+
+<table>
+  <thead>
+    <tr>
+      <th class="sort-handle"></th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  {{#sortable-group tagName='tbody'  as |someGroup|}}
+    {{#each items as |someModel|}}
+      {{#sortable-item tagName='tr' model=someModel group=someGroup handle='.sort-handle'}}
+        <td class="sort-handle">+</td>
+        <td>{{input value=someModel.name placeholder='Name' title='Name'}}</td>
+      {{/sortable-item}}
+    {{/each}}
+  {{/sortable-group}}
+</table>
+
+
 {{outlet}}
